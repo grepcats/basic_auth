@@ -9,9 +9,16 @@ namespace BasicAuthentication.Models
 {
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
     {
+        public DbSet<Item> Items { get; set; }
+
         public ApplicationDbContext(DbContextOptions options) : base(options)
         {
+            
+        }
 
+        protected override void OnModelCreating(ModelBuilder builder)
+        {
+            base.OnModelCreating(builder);
         }
     }
 }
